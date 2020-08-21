@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.os.Handler
 import androidx.core.os.postDelayed
 import com.appdotlab.craftsanthe.R
+import com.appdotlab.craftsanthe.utils.wrappers
 
 class SplashActivity : AppCompatActivity() {
     var delay: Long= 5000
@@ -14,6 +15,7 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
+        var wrappers=wrappers().ToastL(this,"Loading")
         Handler().postDelayed(
             {
                 toHome()
