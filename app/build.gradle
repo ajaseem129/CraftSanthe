@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-
+apply plugin: "org.jetbrains.dokka"
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
@@ -15,7 +15,10 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-
+    dokka {
+        outputFormat = 'gfm'
+        outputDirectory = "Documentation"
+    }
     buildTypes {
         release {
             minifyEnabled false
