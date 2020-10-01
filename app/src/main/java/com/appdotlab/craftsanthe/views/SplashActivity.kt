@@ -9,7 +9,7 @@ import com.appdotlab.craftsanthe.R
 import com.appdotlab.craftsanthe.utils.wrappers
 
 class SplashActivity : AppCompatActivity() {
-    var delay: Long= 5000
+    var delay: Long= 1000
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
@@ -18,18 +18,12 @@ class SplashActivity : AppCompatActivity() {
         var wrappers=wrappers().ToastL(this,"Loading")
         Handler().postDelayed(
             {
-                toHome()
-
+                var i = Intent(this, MainActivity::class.java)
+                i.flags=Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+                startActivity(i)
             }, delay
         )
 
-
-    }
-    fun toHome()
-    {
-        var intent = Intent(this, MainActivity::class.java)
-        startActivity(intent)
-        finish()
 
     }
 }

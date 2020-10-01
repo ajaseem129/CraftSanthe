@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "942666759432",
+    "firebase_url": "https://craftsanthe.firebaseio.com",
+    "project_id": "craftsanthe",
+    "storage_bucket": "craftsanthe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:942666759432:android:b7a68053b644c66fe500bd",
+        "android_client_info": {
+          "package_name": "com.appdotlab.craftsanthe"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "942666759432-r4noknfp07l86t52mq2p9u3rg3jf1g0b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.appdotlab.craftsanthe",
+            "certificate_hash": "4b19d6c72f4f99c38c2fa9427c55f24c5b5edf4e"
+          }
+        },
+        {
+          "client_id": "942666759432-pb87m7hnknag9ecfsuctu6db7kiqk3ts.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAL-jNe1651wA0hERovvGVTHUpMA2WynhM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "942666759432-pb87m7hnknag9ecfsuctu6db7kiqk3ts.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
