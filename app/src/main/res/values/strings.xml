@@ -1,4 +1,12 @@
 <resources>
-    <string name="app_name">Craft Santhe</string>
+    <string name="app_name_short">Craft Santhe</string>
+    <string name="app_name_long">Crafts and Gifts Santhe</string>
     <string name="back">Back</string>
+    <string name="enter_phone_number">Enter Phone number</string>
+    <string name="register">Register</string>
+    <string name="already_have_an_account_login">Already have an account? Login</string>
+    <string name="enter_your_password">Enter your password</string>
+    <string name="re_enter_your_password">Re-enter your password</string>
+    <string name="enter_your_email_address">Enter your email address</string>
+    <string name="login">Login</string>
 </resources>
