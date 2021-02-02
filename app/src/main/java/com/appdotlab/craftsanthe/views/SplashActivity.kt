@@ -4,11 +4,10 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import android.util.Log
-import androidx.lifecycle.ViewModelProvider
 import com.appdotlab.craftsanthe.R
-import com.appdotlab.craftsanthe.utils.Constant
+import com.appdotlab.craftsanthe.utils.Const
 import com.appdotlab.craftsanthe.viewmodel.AuthViewModel
+import androidx.lifecycle.ViewModelProvider
 
 class SplashActivity : AppCompatActivity() {
     var delay: Long= 1000
@@ -19,14 +18,13 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
         authViewModel= ViewModelProvider(this).get(AuthViewModel::class.java)
-
-        Constant.methods.ToastL(this,"Loading")
-        checkIfUser()
+        Const.func.toastL(this,"Loading")
         Handler().postDelayed(
             {
-                var i = checkIfUser()
-                i.flags=Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
-                startActivity(i)
+                startActivity(
+                    checkIfUser().apply {
+                        flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                })
             }, delay
         )
 
@@ -34,8 +32,8 @@ class SplashActivity : AppCompatActivity() {
     }
     fun checkIfUser(): Intent
     {
-        var user = authViewModel.getUser()
-        var newUser = authViewModel.isNewUser()
+        val user = authViewModel.getUser()
+        val newUser = authViewModel.isNewUser()
         return when {
             user.isNullOrEmpty() ->
                 Intent(this, RegisterActivity::class.java)

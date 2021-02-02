@@ -6,7 +6,7 @@ import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import com.appdotlab.craftsanthe.R
 import com.appdotlab.craftsanthe.model.AuthModel
-import com.appdotlab.craftsanthe.utils.Constant
+import com.appdotlab.craftsanthe.utils.Const
 import com.appdotlab.craftsanthe.viewmodel.AuthViewModel
 import kotlinx.android.synthetic.main.activity_register.*
 
@@ -37,7 +37,7 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
                     authViewModel.register(AuthModel)
                 }
                 else
-                    Constant.methods.ToastL(this,"Passwords do not match")
+                    Const.func.toastL(this,"Passwords do not match")
             }
         }
     }

@@ -4,21 +4,22 @@ import android.content.Context
 import android.util.Log
 import android.widget.Toast
 
-object Constant
+object Const
 {
-    const val app_name_short="CraftSanthe"
-    object methods{
-        fun ToastL(context: Context, message:String)
+    const val app_name="Craft Santhe"
+    const val SHARED_PREFS = "Craft_Santhe"
+    object func{
+        fun toastL(context: Context, message:String)
         {
             Toast.makeText(context,message, Toast.LENGTH_LONG).show()
         }
-        fun ToastS(context: Context, message:String)
+        fun toastS(context: Context, message:String)
         {
             Toast.makeText(context,message, Toast.LENGTH_SHORT).show()
         }
-        fun logd(message: String)
+        fun logD(message: String)
         {
-            Log.d(app_name_short, message)
+            Log.d(app_name, message)
         }
     }
 }
