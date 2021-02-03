@@ -18,7 +18,7 @@ class AuthViewModel(application: Application) : AndroidViewModel(application) {
 
     }
     private val context = application
-    private var authRepository: AuthRepository = AuthRepository()
+    private var authRepository: AuthRepository = AuthRepository.getInstance(context)
     private var preferences: SharedPreferences = context.getSharedPreferences(context.getString(R.string.app_name_short), Context.MODE_PRIVATE)
 
     var registerLiveData:LiveData<String>  = MediatorLiveData()
@@ -32,7 +32,8 @@ class AuthViewModel(application: Application) : AndroidViewModel(application) {
     }
     fun register(model: AuthModel)
     {
-        val res= authRepository.register(model,true)
+        val res=
+            authRepository.register(model,true)
         res.subscribe (
             {
                 preferences.edit()
