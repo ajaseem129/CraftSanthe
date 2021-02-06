@@ -8,7 +8,14 @@ object Const
 {
     const val app_name="Craft Santhe"
     const val SHARED_PREFS = "Craft_Santhe"
-    object func{
+    const val USER_ID ="UserId"
+    const val EMAIL = "Email"
+    const val USERS: String = "Users"
+    const val IS_NEW ="Is_New"
+    const val USER_NAME= "username"
+    const val USER_TYPE="userType"
+    const val PHONE = "Phone"
+    object Func{
         fun toastL(context: Context, message:String)
         {
             Toast.makeText(context,message, Toast.LENGTH_LONG).show()

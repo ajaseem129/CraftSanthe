@@ -10,7 +10,7 @@ import com.appdotlab.craftsanthe.viewmodel.AuthViewModel
 import androidx.lifecycle.ViewModelProvider
 
 class SplashActivity : AppCompatActivity() {
-    var delay: Long= 1000
+    private var delay: Long= 1000
     private lateinit var authViewModel: AuthViewModel
 
     override fun onCreate(savedInstanceState: Bundle?)
@@ -18,7 +18,7 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
         authViewModel= ViewModelProvider(this).get(AuthViewModel::class.java)
-        Const.func.toastL(this,"Loading")
+        Const.Func.toastL(this,getString(R.string.loading))
         Handler().postDelayed(
             {
                 startActivity(
@@ -30,14 +30,17 @@ class SplashActivity : AppCompatActivity() {
 
 
     }
-    fun checkIfUser(): Intent
+    private fun checkIfUser(): Intent
     {
         val user = authViewModel.getUser()
-        val newUser = authViewModel.isNewUser()
+        var newUser:Boolean = false
+        user?.let {
+            newUser = authViewModel.isNewUser()
+        }
         return when {
             user.isNullOrEmpty() ->
                 Intent(this, RegisterActivity::class.java)
-            newUser ->
+            newUser?:false ->
                 Intent(this, EnterBasicInformation::class.java)
             else ->
                 Intent(this, LoginActivity::class.java)

@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.activity_register.*
 import kotlinx.android.synthetic.main.activity_login.editTextTextPassword as et_password
 
 class LoginActivity : AppCompatActivity(), View.OnClickListener {
-    lateinit var authViewModel: AuthViewModel
+    private lateinit var authViewModel: AuthViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)

@@ -3,4 +3,51 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <EditText
+        android:id="@+id/et_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/enter_your_name"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/et_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="phone"
+        android:hint="@string/enter_your_phone_number" />
+
+    <TextView
+        android:id="@+id/typePlaceholder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="@string/are_you_a" />
+
+    <RadioGroup
+        android:id="@+id/rg_usertype"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/rb_buyer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/buyer" />
+
+        <RadioButton
+            android:id="@+id/rb_seller"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/seller" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/submit" />
 </LinearLayout>
