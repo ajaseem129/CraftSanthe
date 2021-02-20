@@ -1,8 +1,11 @@
 package com.appdotlab.craftsanthe.views
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.ViewModelProvider
 import com.appdotlab.craftsanthe.R
 import com.appdotlab.craftsanthe.model.UserModel
 import com.appdotlab.craftsanthe.utils.Const
@@ -15,6 +18,8 @@ class EnterBasicInformation: AppCompatActivity(),View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_enter_basic_information)
+        authViewModel = ViewModelProvider(this).get(AuthViewModel::class.java)
+        submit.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -30,7 +35,11 @@ class EnterBasicInformation: AppCompatActivity(),View.OnClickListener {
                         userType = if (rb_buyer.isSelected) getString(R.string.buyer) else getString(R.string.seller),
                         phone = et_phone.text.toString()
                     )
-                )
+                ) {
+                    this.startActivity(
+                        Intent(this, HomeActivity::class.java)
+                    )
+                }
             }
         }
     }

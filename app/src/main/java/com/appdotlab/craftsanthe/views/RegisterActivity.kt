@@ -1,5 +1,6 @@
 package com.appdotlab.craftsanthe.views
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -34,7 +35,11 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
                 if (password == rePassword)
                 {
                     authModel = AuthModel(email,password)
-                    authViewModel.register(authModel)
+                    authViewModel.register(authModel){
+                        startActivity(
+                            Intent(this, EnterBasicInformation::class.java)
+                        )
+                    }
                 }
                 else
                     Const.Func.toastL(this,getString(R.string.passwords_do_not_match))

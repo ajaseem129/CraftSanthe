@@ -34,7 +34,7 @@ class AuthViewModel(application: Application) : AndroidViewModel(application) {
     {
         return preferences.getBoolean(Const.IS_NEW,false)
     }
-    fun register(model: AuthModel) {
+    fun register(model: AuthModel,onComplete: () -> Unit) {
         val res=
             authRepository.register(model,true)
         res.subscribe (
@@ -45,15 +45,13 @@ class AuthViewModel(application: Application) : AndroidViewModel(application) {
                     .apply()
                 Hawk.put(Const.USER_ID,it.userID)
                 Const.Func.toastL(context, context.getString(R.string.account_has_been_created))
-                context.startActivity(
-                    Intent(context, EnterBasicInformation::class.java)
-                )
+                onComplete()
             },
             {
                 Const.Func.toastL(context,it.message.toString())
             })
     }
-    fun login(model: AuthModel)
+    fun login(model: AuthModel,onComplete: () -> Unit)
     {
         authRepository.login(model)?.subscribe(
             {
@@ -64,9 +62,7 @@ class AuthViewModel(application: Application) : AndroidViewModel(application) {
                     Hawk.put(Const.USER_TYPE,it.userType)
                     Hawk.put(Const.PHONE,it.phone)
                 }
-                context.startActivity(
-                    Intent(context,HomeActivity::class.java)
-                )
+                onComplete()
 
             },
             {
@@ -74,7 +70,7 @@ class AuthViewModel(application: Application) : AndroidViewModel(application) {
             }
         )
     }
-    fun enterBasicInfo(model: UserModel)
+    fun enterBasicInfo(model: UserModel, onComplete:()->Unit)
     {
         authRepository.setBasicInfo(model).subscribe(
             {
@@ -85,9 +81,7 @@ class AuthViewModel(application: Application) : AndroidViewModel(application) {
                 Hawk.put(Const.USER_TYPE,it.userType)
                 Hawk.put(Const.PHONE,it.phone)
                 preferences.edit().putBoolean(Const.IS_NEW,false).apply()
-                context.startActivity(
-                    Intent(context,LoginActivity::class.java)
-                )
+                onComplete()
             },
             {
                 Const.Func.toastL(context,it.message.toString())

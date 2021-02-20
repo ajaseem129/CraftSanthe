@@ -39,11 +39,11 @@ class SplashActivity : AppCompatActivity() {
         }
         return when {
             user.isNullOrEmpty() ->
-                Intent(this, RegisterActivity::class.java)
+                Intent(this, LoginActivity::class.java)
             newUser?:false ->
                 Intent(this, EnterBasicInformation::class.java)
             else ->
-                Intent(this, LoginActivity::class.java)
+                Intent(this, HomeActivity::class.java)
         }
     }
 }

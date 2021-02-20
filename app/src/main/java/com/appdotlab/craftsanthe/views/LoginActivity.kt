@@ -8,7 +8,9 @@ import androidx.lifecycle.ViewModelProvider
 import com.appdotlab.craftsanthe.R
 import com.appdotlab.craftsanthe.model.AuthModel
 import com.appdotlab.craftsanthe.viewmodel.AuthViewModel
+import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_register.*
+import kotlinx.android.synthetic.main.activity_register.et_email
 import kotlinx.android.synthetic.main.activity_login.editTextTextPassword as et_password
 
 class LoginActivity : AppCompatActivity(), View.OnClickListener {
@@ -17,7 +19,8 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         authViewModel= ViewModelProvider(this).get(AuthViewModel::class.java)
-
+        bt_login.setOnClickListener(this)
+        bt_to_register.setOnClickListener(this)
     }
 
 
@@ -33,6 +36,10 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
     }
     private fun login()
     {
-        authViewModel.login(AuthModel(et_email.text.toString(),et_password.text.toString()))
+        authViewModel.login(AuthModel(et_email.text.toString(),et_password.text.toString())) {
+            startActivity(
+                Intent(this, HomeActivity::class.java)
+            )
+        }
     }
 }
